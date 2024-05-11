@@ -23,14 +23,11 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+// require routes
+const taskRouter = require('./routes/tasks.routes.js');
 
-
-//require routes
-// const taskRouter = require('./routes/task.routes.js');
-
-// // Routes
-// app.use('/api/v1/tasks', taskRouter);
-
+// Routes
+app.use('/api/v1/tasks', taskRouter);
 
 // Error handler middleware
 app.use((err, req, res, next) => {
