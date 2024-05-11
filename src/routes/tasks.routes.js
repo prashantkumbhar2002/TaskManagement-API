@@ -12,4 +12,17 @@ router.route("/")
 ], taskController.createTask);
 
 
+
+router.route('/:id')
+.get(taskController.getTaskById)
+
+.put([
+    body('title').notEmpty(),
+    body('description').notEmpty(),
+    body('status').isIn(['TODO', 'IN_PROGRESS', 'COMPLETED'])
+], taskController.updateTask)
+
+.delete(taskController.deleteTask)
+
+
 module.exports = router;
