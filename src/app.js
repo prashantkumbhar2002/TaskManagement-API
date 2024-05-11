@@ -23,12 +23,20 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+
+
 //require routes
 // const taskRouter = require('./routes/task.routes.js');
 
 // // Routes
 // app.use('/api/v1/tasks', taskRouter);
 
+
+// Error handler middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Internal Server Error' });
+});
 module.exports = app;
 
 
