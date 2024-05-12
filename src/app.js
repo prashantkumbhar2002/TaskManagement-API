@@ -25,9 +25,13 @@ app.use(limiter);
 
 // require routes
 const taskRouter = require('./routes/tasks.routes.js');
+const userRouter = require('./routes/user.routes.js');
+
 
 // Routes
 app.use('/api/v1/tasks', taskRouter);
+app.use('/api/v1/users', userRouter);
+
 
 // Error handler middleware
 app.use((err, req, res, next) => {
@@ -35,6 +39,3 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: 'Internal Server Error' });
 });
 module.exports = app;
-
-
-
