@@ -2,27 +2,28 @@ const express = require('express');
 const { body } = require('express-validator');
 const router = express.Router();
 const taskController = require('../controllers/tasks.controller');
+const authenticateUser  = require('../middlewares/auth.middleware.js');
 
 router.route("/")
-.get(taskController.getAllTasks)
+.get(authenticateUser, taskController.getAllTasks)
 .post([
     body('title').notEmpty(),
     body('description').notEmpty(),
     body('status').isIn(['TODO', 'IN_PROGRESS', 'COMPLETED'])
-], taskController.createTask);
+], authenticateUser, taskController.createTask);
 
 
 
 router.route('/:id')
-.get(taskController.getTaskById)
+.get(authenticateUser, taskController.getTaskById)
 
 .put([
     body('title').notEmpty(),
     body('description').notEmpty(),
     body('status').isIn(['TODO', 'IN_PROGRESS', 'COMPLETED'])
-], taskController.updateTask)
+],authenticateUser, taskController.updateTask)
 
-.delete(taskController.deleteTask)
+.delete(authenticateUser, taskController.deleteTask)
 
 
 module.exports = router;

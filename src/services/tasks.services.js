@@ -16,8 +16,6 @@ class TaskService {
     async updateTask(id, taskData) {
         return await Task.findByIdAndUpdate(id, taskData, { new: true });
     }
-    
-
     async deleteTask(id) {
         await Task.findByIdAndDelete(id);
     }

@@ -17,7 +17,7 @@ const taskSchema = new mongoose.Schema({
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        // required: true    //temporarily made optional
+        required: true
     },
 }, {
     timestamps: true
