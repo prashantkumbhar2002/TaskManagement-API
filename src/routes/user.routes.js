@@ -1,16 +1,24 @@
 const express = require('express');
 const UserController = require('../controllers/users.controller.js');
+const { body } = require('express-validator');
 const authenticateUser  = require('../middlewares/auth.middleware.js');
 
 const router = express.Router();
 
 // Registration route
 router.route('/register')
-.post(UserController.registerUser);
+.post([
+    body('username').notEmpty().withMessage('Username is required'),
+    body('fullName').notEmpty().withMessage('Full Name is required'),
+    body('password').notEmpty().withMessage('Password is required')
+],UserController.registerUser);
 
 // Login route
 router.route('/login')
-.post(UserController.loginUser);
+.post([
+    body('username').notEmpty().withMessage('Username is required'),
+    body('password').notEmpty().withMessage('Password is required')
+],UserController.loginUser);
 
 // Logout route
 router.route('/logout')
@@ -22,7 +30,10 @@ router.route('/refresh-token')
 
 // Change password route
 router.route('/change-password')
-.post(authenticateUser, UserController.changeCurrentPassword);
+.post([
+    body('oldPassword').notEmpty().withMessage('Old Password is required'),
+    body('newPassword').notEmpty().withMessage('New Password is required')
+],authenticateUser, UserController.changeCurrentPassword);
 
 // Get current user route
 router.route('/current-user')
