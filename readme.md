@@ -20,7 +20,7 @@ This project provides a RESTful API for task management, allowing users to perfo
 ## Installation
 
 ### Clone the Repository
-use the command:
+Use the command in the terminal:
 ```bash
 git clone git@github.com:prashantkumbhar2002/TaskManagement-Backend.git
 cd task-management-api
@@ -36,7 +36,7 @@ Set up the required environment variables:
     - Create a .env file in the project root.
     - Define environment variables in the .env file:
 
-    - Ex. 
+    Ex. 
       PORT=5000
       MONGO_URI=mongodb://localhost:27017/task-manager
       JWT_SECRET=mysecretkey
@@ -44,6 +44,8 @@ Set up the required environment variables:
 ## Database Setup
 Ensure that MongoDB is running and accessible.
 
+
+## Starting the Server
 ### Development Mode
 ```bash
 npm run dev
@@ -58,7 +60,7 @@ npm start
 ### API Documentation
 Once the server is running, access the API documentation:
 
-    - Open http://localhost:5000/docs in a web browser.
+    Open http://localhost:5000/docs in a web browser.
 
 ### Example API Requests
 - Register a User - /api/v1/users/register 
