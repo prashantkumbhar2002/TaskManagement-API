@@ -2,6 +2,9 @@
 
 This project provides a RESTful API for task management, allowing users to perform CRUD operations on tasks and manage user authentication.
 
+## Requirements
+For development, you will only need Node.js and a node global package, npm, installed in your environement.
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -63,13 +66,22 @@ Once the server is running, access the API documentation:
     Open http://localhost:5000/docs in a web browser.
 
 ### Example API Requests
-- Register a User - /api/v1/users/register 
+- First register by giving userName, full name, Password;
 
-- Login to Obtain Token - /api/v1/users/login
-
-- Access Protected Resource - /api/v1/tasks/ , /api/v1/tasks/{id}, etc
-Include the obtained token in the Authorization header to access protected resources.
+  - Register a User - /api/v1/users/register 
 
 
-## Additional Information]
+- Login using credentials - userName, Password
+
+  - Login to Obtain Token - /api/v1/users/login
+
+
+- Access any resource from task or user management apis listed on that page
+
+  - Access Protected Resource - /api/v1/tasks/ , /api/v1/tasks/{id}, etc
+
+  Include the obtained token in the Authorization header to access protected resources.
+
+
+## Additional Information
 This project uses JWT for authentication and MongoDB for data storage.
