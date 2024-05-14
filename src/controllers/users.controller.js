@@ -53,8 +53,9 @@ class UserController {
                 .json({
                     message: "User logged-in Successfully",
                     loggedInUser,
-                    // accessToken,
-                    // refreshToken
+                    //temporarily sending access token in res for swagger use
+                    accessToken,
+                    refreshToken
                 });
         } catch (error) {
             console.error(error);
